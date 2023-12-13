@@ -7,11 +7,9 @@ export const HomePage = () => {
     <main className="home">
       <div>
         <h1>BURGER SHOP</h1>
-        <p>Give yourself a tasty burger.</p>
+        <p id="home_p">Give yourself a tasty burger.</p>
       </div>
-      <Link to="/menu_page">
-        <p>Explore menu</p>
-      </Link>
+      <Link to="/menu_page">Explore menu</Link>
     </main>
   );
 };

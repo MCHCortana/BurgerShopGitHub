@@ -41,7 +41,7 @@ export const DropdownMenu = ({ setOnMenuOpen, onMenuOpen }) => {
               Menu
             </button>
             {onMenuOpen && (
-              <ul className="dropdown-menu--mine Adropdown-menu-end">
+              <ul className="dropdown-menu--mine dropdown-menu-end">
                 {navLinks.map((d, i) => (
                   <li key={i}>
                     <Link to={d.path}>
