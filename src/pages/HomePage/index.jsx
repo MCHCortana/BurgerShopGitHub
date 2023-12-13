@@ -9,7 +9,7 @@ export const HomePage = () => {
         <h1>BURGER SHOP</h1>
         <p id="home_p">Give yourself a tasty burger.</p>
       </div>
-      <Link to="/menu_page">Explore menu</Link>
+      <Link to="/menupage">Explore menu</Link>
     </main>
   );
 };
