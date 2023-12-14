@@ -9,7 +9,7 @@ export const ContactPage = () => {
         <h2>CONTACT US</h2>
         <input type="text" placeholder="user"></input>
         <input type="email" placeholder="user@email-here.com"></input>
-        <textarea pleaseholeder="Feedback here please"></textarea>
+        <textarea placeholder="Feedback here please"></textarea>
         <Popup trigger={<button type="button">Send</button>}>
           <div
             style={{

@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { MenuPage } from './pages/MenuPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { LoginPage } from './pages/LoginPage';
 
 import React from 'react';
 import { App } from './App';
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/contactus',
         element: <ContactPage />,
+      },
+      {
+        path: '/login',
+        element: <LoginPage />,
       },
     ],
   },

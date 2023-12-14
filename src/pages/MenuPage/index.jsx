@@ -1,8 +1,7 @@
 import './menu.scss';
 
 import React from 'react';
-import { useState } from 'react';
-import { MenuCard } from './../../components/MenuCard';
+import { MenuCard } from './MenuCard';
 import burger1 from './../../../public/assets/burger1.png';
 import burger2 from './../../../public/assets/burger2.png';
 import burger3 from './../../../public/assets/burger3.png';
