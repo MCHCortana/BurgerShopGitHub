@@ -3,12 +3,17 @@ import './shipping.scss';
 import React from 'react';
 
 import { Country, State } from 'country-state-city';
-import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Popup from 'reactjs-popup';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const ShippingPage = () => {
+  const [countryID, setCountryID] = useState('');
+  console.log(Country.getAllCountries());
+  console.log(State.getAllStates());
+  console.log(State.getStatesOfCountry());
+
   return (
     <section className="shipping">
       <main>
@@ -24,11 +29,15 @@ export const ShippingPage = () => {
           </div>
           <div>
             <label>Country</label>
-            <select>
+            <select
+              onChange={(e) => {
+                setCountryID(e.target.value);
+              }}
+            >
               <option value="">Country</option>
               {Country &&
                 Country.getAllCountries().map((country) => (
-                  <option key={country.name} value={country.name}>
+                  <option key={country.isoCode} value={country.isoCode}>
                     {country.name}
                   </option>
                 ))}
@@ -39,9 +48,9 @@ export const ShippingPage = () => {
             <select>
               <option value="">State</option>
               {State &&
-                State.getStatesOfCountry('IN').map((i) => (
-                  <option value={i.isoCode} key={i.isoCode}>
-                    {i.name}
+                State.getStatesOfCountry(countryID).map((state) => (
+                  <option value={state.isoCode} key={state.isoCode}>
+                    {state.name}
                   </option>
                 ))}
             </select>
@@ -58,7 +67,7 @@ export const ShippingPage = () => {
           </div>
           <Popup
             trigger={
-              <Link to="/myorder">
+              <Link to="/myorders">
                 <button type="button">Confirm Order</button>
               </Link>
             }

@@ -48,11 +48,7 @@ const router = createBrowserRouter([
         element: <ShippingPage />,
       },
       {
-        path: '/myorder',
-        element: <MyOrder />,
-      },
-      {
-        path: '/myorder',
+        path: '/myorders',
         element: <MyOrder />,
       },
       {
