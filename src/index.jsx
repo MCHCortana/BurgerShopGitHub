@@ -5,6 +5,8 @@ import { MenuPage } from './pages/MenuPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { LoginPage } from './pages/LoginPage';
+import { MyOrder } from './pages/OrderPage';
+import { OrderDetails } from './pages/OrderPage/OrderDetails';
 
 import { CartPage } from './pages/CartPage';
 import { ShippingPage } from './pages/ShippingPage';
@@ -44,6 +46,18 @@ const router = createBrowserRouter([
       {
         path: '/shipping',
         element: <ShippingPage />,
+      },
+      {
+        path: '/myorder',
+        element: <MyOrder />,
+      },
+      {
+        path: '/myorder',
+        element: <MyOrder />,
+      },
+      {
+        path: '/orderdetails',
+        element: <OrderDetails />,
       },
     ],
   },

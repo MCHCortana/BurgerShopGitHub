@@ -1,6 +1,8 @@
 import './cart.scss';
 
 import React from 'react';
+
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import burger1 from './../../../public/assets/burger1.png';
 import burger2 from './../../../public/assets/burger1.png';
@@ -22,9 +24,29 @@ const CartItem = ({ value, title, img, increment, decrement }) => (
 );
 
 export const CartPage = () => {
-  const increment = (item) => {};
+  const [valueBurger1, setValueBurger1] = useState(0);
+  const [valueBurger2, setValueBurger2] = useState(0);
+  const [valueBurger3, setValueBurger3] = useState(0);
 
-  const decrement = (item) => {};
+  const increment = (item) => {
+    if (item === 1) {
+      setValueBurger1(valueBurger1 + 1);
+    } else if (item === 2) {
+      setValueBurger2(valueBurger2 + 2);
+    } else if (item === 3) {
+      setValueBurger3(valueBurger3 + 3);
+    }
+  };
+
+  const decrement = (item) => {
+    if (item === 1 && valueBurger1 - 1 >= 0) {
+      setValueBurger1(valueBurger1 - 1);
+    } else if (item === 2 && valueBurger2 - 2 >= 0) {
+      setValueBurger2(valueBurger2 - 2);
+    } else if (item === 3) {
+      valueBurger3 - 3 >= 0 && setValueBurger3(valueBurger3 - 3);
+    }
+  };
 
   return (
     <section className="cart">
@@ -32,27 +54,28 @@ export const CartPage = () => {
         <CartItem
           title={'Cheese Burger'}
           img={burger1}
-          value={0}
+          value={valueBurger1}
           increment={() => increment(1)}
+          decrement={() => decrement(1)}
 
           // Add the function for decrementing the order by 1
         />
         <CartItem
           title={'Veg Cheese Burger'}
           img={burger2}
-          value={0}
+          value={valueBurger2}
           increment={() => increment(2)}
+          decrement={() => decrement(2)}
           // Add the function for decrementing the order by 2
         />
 
         <CartItem
           title={'Cheeseburger with French Fries'}
           img={burger3}
-          value={0}
-          increment={() => increment(1)}
-          // Add the function for decrementing the order by 2
+          value={valueBurger3}
+          increment={() => increment(3)}
+          decrement={() => decrement(3)}
         />
-
         <article>
           <div>
             <h4>Sub Total</h4>
