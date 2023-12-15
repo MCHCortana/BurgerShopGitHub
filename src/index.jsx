@@ -6,6 +6,9 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { LoginPage } from './pages/LoginPage';
 
+import { CartPage } from './pages/CartPage';
+import { ShippingPage } from './pages/ShippingPage';
+
 import React from 'react';
 import { App } from './App';
 
@@ -33,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />,
+      },
+      {
+        path: '/cartpage',
+        element: <CartPage />,
+      },
+      {
+        path: '/shipping',
+        element: <ShippingPage />,
       },
     ],
   },

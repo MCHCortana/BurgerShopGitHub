@@ -1,8 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import burger1 from "../../assets/burger1.png";
-import burger2 from "../../assets/burger2.png";
-// import burger3 here
+import './cart.scss';
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import burger1 from './../../../public/assets/burger1.png';
+import burger2 from './../../../public/assets/burger1.png';
+import burger3 from './../../../public/assets/burger1.png';
 
 const CartItem = ({ value, title, img, increment, decrement }) => (
   <div className="cartItem">
@@ -19,7 +21,7 @@ const CartItem = ({ value, title, img, increment, decrement }) => (
   </div>
 );
 
-const Cart = () => {
+export const CartPage = () => {
   const increment = (item) => {};
 
   const decrement = (item) => {};
@@ -28,25 +30,28 @@ const Cart = () => {
     <section className="cart">
       <main>
         <CartItem
-          title={"Cheese Burger"}
+          title={'Cheese Burger'}
           img={burger1}
           value={0}
           increment={() => increment(1)}
 
-        // Add the function for decrementing the order by 1 
-       
+          // Add the function for decrementing the order by 1
         />
         <CartItem
-          title={"Veg Cheese Burger"}
+          title={'Veg Cheese Burger'}
           img={burger2}
           value={0}
           increment={() => increment(2)}
-        // Add the function for decrementing the order by 2
-       
+          // Add the function for decrementing the order by 2
         />
 
-        {/* Fill up the code for Cheese Burger similarly */}
-       
+        <CartItem
+          title={'Cheeseburger with French Fries'}
+          img={burger3}
+          value={0}
+          increment={() => increment(1)}
+          // Add the function for decrementing the order by 2
+        />
 
         <article>
           <div>
@@ -60,7 +65,7 @@ const Cart = () => {
           <div>
             <h4>Shipping Charges</h4>
             <p>₹{200}</p>
-          </div>{" "}
+          </div>{' '}
           <div>
             <h4>Total</h4>
             <p>₹{2000 + 2000 * 0.18 + 200}</p>
@@ -71,5 +76,3 @@ const Cart = () => {
     </section>
   );
 };
-
-export default Cart;

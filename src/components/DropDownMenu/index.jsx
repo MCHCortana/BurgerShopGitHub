@@ -9,7 +9,6 @@ import { FiShoppingCart, FiLogIn } from 'react-icons/fi';
 
 export const DropdownMenu = ({ setOnMenuOpen, onMenuOpen }) => {
   const [navLinks, setNavLinks] = useState([]);
-  // const [onMenuOpen, setOnMenuOpen] = useState(false);
 
   useEffect(() => {
     const navs = [
