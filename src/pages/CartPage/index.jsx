@@ -5,14 +5,32 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import burger1 from './../../../public/assets/burger1.png';
-import burger2 from './../../../public/assets/burger1.png';
-import burger3 from './../../../public/assets/burger1.png';
+import burger2 from './../../../public/assets/burger2.png';
+import burger3 from './../../../public/assets/burger3.png';
 
-const CartItem = ({ value, title, img, increment, decrement }) => (
+// const CartItem = ({ value, title, img, increment, decrement, price }) => (
+//   <div className="cartItem">
+//     <div>
+//       <img src={img} alt="Item" />
+//       <h4>{title}</h4>
+//       <h4> ₹{price}</h4>
+//       <button onClick={decrement}>-</button>
+//       <input type="number" readOnly value={value} />
+//       <button onClick={increment}>+</button>
+//     </div>
+//   </div>
+// );
+
+const CartItem = ({ value, title, img, increment, decrement, price }) => (
   <div className="cartItem">
-    <div>
-      <h4>{title}</h4>
-      <img src={img} alt="Item" />
+    <div className="burger_info">
+      <div className="burger_img">
+        <img src={img} alt="Item" />
+      </div>
+      <div>
+        <h4>{title}</h4>
+        <h4> ₹{price}</h4>
+      </div>
     </div>
 
     <div>
@@ -57,6 +75,7 @@ export const CartPage = () => {
           value={valueBurger1}
           increment={() => increment(1)}
           decrement={() => decrement(1)}
+          price={200}
 
           // Add the function for decrementing the order by 1
         />
@@ -66,6 +85,7 @@ export const CartPage = () => {
           value={valueBurger2}
           increment={() => increment(2)}
           decrement={() => decrement(2)}
+          price={500}
           // Add the function for decrementing the order by 2
         />
 
@@ -75,6 +95,7 @@ export const CartPage = () => {
           value={valueBurger3}
           increment={() => increment(3)}
           decrement={() => decrement(3)}
+          price={1800}
         />
         <article>
           <div>

@@ -81,6 +81,21 @@
       border-radius: 5px;
     }
   }
+  > .burger_info {
+    width: 80%;
+
+    > .burger_img {
+      width: 10%;
+      > img {
+        width: 100%;
+      }
+    }
+    > div {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
