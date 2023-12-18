@@ -1,9 +1,9 @@
 @import './../../styles/colors.scss';
 
 footer {
-  min-height: 300px;
+  min-height: 100px;
   background-color: $dark;
-  padding: 4rem;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
   color: white;
@@ -23,7 +23,7 @@ footer {
   aside {
     height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     h4 {
@@ -31,6 +31,9 @@ footer {
     }
 
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: 0.5rem;
       font-size: 2rem;
       color: white;
