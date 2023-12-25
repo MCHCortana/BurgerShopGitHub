@@ -67,7 +67,7 @@ export const ShippingPage = () => {
           </div>
           <Popup
             trigger={
-              <Link to="/myorders">
+              <Link to="/myorder">
                 <button type="button">Confirm Order</button>
               </Link>
             }

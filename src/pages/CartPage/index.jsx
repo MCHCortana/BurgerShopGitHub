@@ -1,27 +1,15 @@
 import './cart.scss';
 
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import burger1 from './../../../public/assets/burger1.png';
 import burger2 from './../../../public/assets/burger2.png';
 import burger3 from './../../../public/assets/burger3.png';
+import { ShopContext } from '../../context';
 
-// const CartItem = ({ value, title, img, increment, decrement, price }) => (
-//   <div className="cartItem">
-//     <div>
-//       <img src={img} alt="Item" />
-//       <h4>{title}</h4>
-//       <h4> ₹{price}</h4>
-//       <button onClick={decrement}>-</button>
-//       <input type="number" readOnly value={value} />
-//       <button onClick={increment}>+</button>
-//     </div>
-//   </div>
-// );
-
-const CartItem = ({ value, title, img, increment, decrement, price }) => (
+const CartItem = ({ value, title, img, price, increment, decrement, id }) => (
   <div className="cartItem">
     <div className="burger_info">
       <div className="burger_img">
@@ -34,36 +22,35 @@ const CartItem = ({ value, title, img, increment, decrement, price }) => (
     </div>
 
     <div>
-      <button onClick={decrement}>-</button>
+      <button
+        onClick={() => {
+          decrement(id, value);
+        }}
+      >
+        -
+      </button>
       <input type="number" readOnly value={value} />
-      <button onClick={increment}>+</button>
+      <button onClick={() => increment(id)}>+</button>
     </div>
   </div>
 );
 
 export const CartPage = () => {
-  const [valueBurger1, setValueBurger1] = useState(0);
-  const [valueBurger2, setValueBurger2] = useState(0);
-  const [valueBurger3, setValueBurger3] = useState(0);
+  const {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    totalPrice,
+    tax,
+    shipping,
+    checkOutPrice,
+  } = useContext(ShopContext);
 
-  const increment = (item) => {
-    if (item === 1) {
-      setValueBurger1(valueBurger1 + 1);
-    } else if (item === 2) {
-      setValueBurger2(valueBurger2 + 2);
-    } else if (item === 3) {
-      setValueBurger3(valueBurger3 + 3);
-    }
+  const handleDecrement = (id, value) => {
+    value - 1 >= 0 && removeFromCart(id);
   };
-
-  const decrement = (item) => {
-    if (item === 1 && valueBurger1 - 1 >= 0) {
-      setValueBurger1(valueBurger1 - 1);
-    } else if (item === 2 && valueBurger2 - 2 >= 0) {
-      setValueBurger2(valueBurger2 - 2);
-    } else if (item === 3) {
-      valueBurger3 - 3 >= 0 && setValueBurger3(valueBurger3 - 3);
-    }
+  const handleIncrement = (id) => {
+    addToCart(id);
   };
 
   return (
@@ -72,47 +59,47 @@ export const CartPage = () => {
         <CartItem
           title={'Cheese Burger'}
           img={burger1}
-          value={valueBurger1}
-          increment={() => increment(1)}
-          decrement={() => decrement(1)}
+          id={1}
+          value={cartItems[1].pcs}
+          increment={handleIncrement}
+          decrement={handleDecrement}
           price={200}
-
-          // Add the function for decrementing the order by 1
         />
         <CartItem
           title={'Veg Cheese Burger'}
           img={burger2}
-          value={valueBurger2}
-          increment={() => increment(2)}
-          decrement={() => decrement(2)}
+          id={2}
+          value={cartItems[2].pcs}
+          increment={handleIncrement}
+          decrement={handleDecrement}
           price={500}
-          // Add the function for decrementing the order by 2
         />
 
         <CartItem
           title={'Cheeseburger with French Fries'}
           img={burger3}
-          value={valueBurger3}
-          increment={() => increment(3)}
-          decrement={() => decrement(3)}
+          id={3}
+          value={cartItems[3].pcs}
+          increment={handleIncrement}
+          decrement={handleDecrement}
           price={1800}
         />
         <article>
           <div>
             <h4>Sub Total</h4>
-            <p>₹{2000}</p>
+            <p>₹{totalPrice}</p>
           </div>
           <div>
-            <h4>Tax</h4>
-            <p>₹{2000 * 0.18}</p>
+            <h4>Tax {tax}%</h4>
+            <p>₹{totalPrice * tax}</p>
           </div>
           <div>
             <h4>Shipping Charges</h4>
-            <p>₹{200}</p>
+            <p>₹{shipping}</p>
           </div>{' '}
           <div>
             <h4>Total</h4>
-            <p>₹{2000 + 2000 * 0.18 + 200}</p>
+            <p>₹{checkOutPrice}</p>
           </div>
           <Link to="/shipping">Checkout</Link>
         </article>

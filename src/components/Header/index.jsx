@@ -14,9 +14,11 @@ export const Header = () => {
   return (
     <>
       <nav>
-        <motion.div initial={{ x: '-100%' }} whileInView={{ x: 0 }}>
-          <IoFastFoodOutline />
-        </motion.div>
+        <Link to="/menupage">
+          <motion.div initial={{ x: '-100%' }} whileInView={{ x: 0 }}>
+            <IoFastFoodOutline className="back_to_menu" />
+          </motion.div>
+        </Link>
         <div>
           <Link to="/">Home</Link>
           <Link to="/contactus">Contact</Link>

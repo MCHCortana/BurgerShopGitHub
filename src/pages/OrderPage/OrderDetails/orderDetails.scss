@@ -53,13 +53,20 @@
         justify-content: space-between;
         padding: 1rem;
         border-radius: 5px;
-        > h4 {
-          font-weight: 200;
-          letter-spacing: 2px;
+        > div {
+          width: 80%;
+          > h4 {
+            font-weight: 200;
+            letter-spacing: 2px;
+          }
         }
       }
     }
   }
+}
+.checkout_table {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 600px) {
